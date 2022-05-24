@@ -38,7 +38,7 @@ with dai.Device(pipeline) as device:
     # Output queue will be used to get the encoded data from the output defined above
     q = device.getOutputQueue(name="h265", maxSize=30, blocking=True)
 
-    batpath = open( os.path.join(os.path.dirname(os.path.abspath(__file__)), "video",dt_now+".bat"), 'a')
+    batpath = open( os.path.join(os.path.dirname(os.path.abspath(__file__)), "video",dt_now+".bat"), 'w')
     batpath.write("ffmpeg -framerate 30 -i "+dt_now+".h265 -c copy "+dt_now+".mp4")
     batpath.close()
 
@@ -55,8 +55,5 @@ with dai.Device(pipeline) as device:
             # Keyboard interrupt (Ctrl + C) detected
             pass
 
-    batpath = open( os.path.join(os.path.dirname(os.path.abspath(__file__)), "video",dt_now+".bat"), 'a')
-    batpath.write("ffmpeg -framerate 30 -i "+dt_now+".h265 -c copy "+dt_now+".mp4")
-    batpath.close()
     print("To view the encoded data, convert the stream file (.h265) into a video file (.mp4) using a command below:")
     print("ffmpeg -framerate 30 -i "+dt_now+".h265 -c copy "+dt_now+".mp4")
