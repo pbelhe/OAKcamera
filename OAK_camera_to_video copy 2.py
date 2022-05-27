@@ -49,11 +49,16 @@ depth.rectifiedRight.link(manip.inputImage)
 manip.out.link(nn.input)
 manip.out.link(manipOut.input)
 nn.out.link(nnOut.input)
-'''
+
 # Linking
 camRgb.video.link(videoEnc.input)
 videoEnc.bitstream.link(manip.inputImage)
 manip.out.link(xout.input)
+'''
+# Linking
+camRgb.video.link(manip.inputImage)
+manip.out.link(videoEnc.input)
+videoEnc.bitstream.link(xout.input)
 
 #generate filename
 dirname = "video"
@@ -64,6 +69,11 @@ filepath =  os.path.join(os.path.dirname(os.path.abspath(__file__)), dirname,dt_
 frame_count = 0
 
 
+
+device_info = dai.DeviceInfo()
+device_info.state = dai.XLinkDeviceState.X_LINK_BOOTLOADER
+device_info.desc.protocol = dai.XLinkProtocol.X_LINK_TCP_IP
+device_info.desc.name = "192.168.1.100"
 
 # Connect to device and start pipeline
 with dai.Device(pipeline) as device:

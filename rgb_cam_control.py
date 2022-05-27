@@ -64,6 +64,9 @@ configIn.out.link(camRgb.inputConfig)
 videoEncoder.bitstream.link(videoMjpegOut.input)
 stillEncoder.bitstream.link(stillMjpegOut.input)
 
+out1 = cv2.VideoWriter("outpy1.mp4", cv2.VideoWriter_fourcc('m','p','4','v'), camRgb.getFps(), (camRgb.getPreviewWidth(),camRgb.getPreviewHeight()))
+out2 = cv2.VideoWriter("outpy2.mp4", cv2.VideoWriter_fourcc('m','p','4','v'), camRgb.getFps(), (camRgb.getPreviewWidth(),camRgb.getPreviewHeight()))
+
 # Connect to device and start pipeline
 with dai.Device(pipeline) as device:
 
@@ -103,12 +106,15 @@ with dai.Device(pipeline) as device:
     while True:
         previewFrames = previewQueue.tryGetAll()
         for previewFrame in previewFrames:
-            cv2.imshow('preview', previewFrame.getData().reshape(previewFrame.getHeight(), previewFrame.getWidth(), 3))
+            frame = previewFrame.getData().reshape(previewFrame.getHeight(), previewFrame.getWidth(), 3)
+            out1.write(frame)
+            cv2.imshow('preview', frame)
 
         videoFrames = videoQueue.tryGetAll()
         for videoFrame in videoFrames:
             # Decode JPEG
             frame = cv2.imdecode(videoFrame.getData(), cv2.IMREAD_UNCHANGED)
+            out2.write(frame)
             # Display
             cv2.imshow('video', frame)
 

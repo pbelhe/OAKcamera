@@ -51,6 +51,14 @@ class DentsDetector:
         # Linking
         camera_rgb.preview.link(image_manip.inputImage)
         image_manip.out.link(preview_out.input)
+
+        # Create a video writer
+        dirname = "video2"
+        dt_now = time.strftime("%Y%m%d-%H%M%S")
+        filepath =  os.path.join(os.path.dirname(os.path.abspath(__file__)), dirname,dt_now+".mp4")
+        if Path(filepath).exists():
+            os.remove(filepath)
+        self.video_writer = cv2.VideoWriter(filepath, cv2.VideoWriter_fourcc('m','p','4','v'), camera_rgb.getFps(), (camera_rgb.getPreviewHeight(),camera_rgb.getPreviewWidth()))
     
     def start(self):
         # Initialize the thread
@@ -65,15 +73,6 @@ class DentsDetector:
         return self
     
     def _run(self):
-
-        # Create a video writer
-        dirname = "video2"
-        dt_now = time.strftime("%Y%m%d-%H%M%S")
-        filepath =  os.path.join(os.path.dirname(os.path.abspath(__file__)), dirname,dt_now+".mp4")
-        if Path(filepath).exists():
-            os.remove(filepath)
-        fourcc = cv2.VideoWriter_fourcc('m','p','4','v') # Video ecoder
-        self.video_writer = cv2.VideoWriter(filepath, fourcc, 40, (960, 512))
 
         while True:
             # Initiate main loop
@@ -104,9 +103,9 @@ class DentsDetector:
                             cv2.putText(frame, fps_text, (2, frame.shape[0] - 4), cv2.FONT_HERSHEY_TRIPLEX, 0.4, (255, 255, 255))
                             
                             colors = [(0, 255, 0), (0, 255, 255), (0, 0, 255)]
-                            # Show the frame
-                            cv2.imshow(name, frame)
+                            # Store and Show the frame
                             self.video_writer.write(frame)
+                            cv2.imshow(name, frame)
 
                     while True:
                         try:
@@ -130,8 +129,9 @@ class DentsDetector:
                                 frame_detections = self.frame.copy()
                                 displayFrame('Preview', frame_detections, fps_text)
                                 cv2.waitKey(1)
-                                self.video_writer.release()
-                                print("released")
+                    
+                    self.video_writer.release()
+                    print("released")
 
             except:
                 print('[Info] Camera connection error')
