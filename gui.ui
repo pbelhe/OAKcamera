@@ -38,48 +38,12 @@ color: white;
 </string>
   </property>
   <widget class="QWidget" name="centralwidget">
-   <widget class="QPushButton" name="camera1">
-    <property name="geometry">
-     <rect>
-      <x>50</x>
-      <y>610</y>
-      <width>130</width>
-      <height>48</height>
-     </rect>
-    </property>
-    <property name="minimumSize">
-     <size>
-      <width>130</width>
-      <height>48</height>
-     </size>
-    </property>
-    <property name="maximumSize">
-     <size>
-      <width>130</width>
-      <height>48</height>
-     </size>
-    </property>
-    <property name="autoFillBackground">
-     <bool>false</bool>
-    </property>
-    <property name="styleSheet">
-     <string notr="true">color: white;
-height:43px;
-width: 130px;
-text-align:left;
-padding: 5px 15px;
-background: transparent;</string>
-    </property>
-    <property name="text">
-     <string>CAMERA 1</string>
-    </property>
-   </widget>
    <widget class="QPushButton" name="detect_btn">
     <property name="geometry">
      <rect>
-      <x>850</x>
-      <y>230</y>
-      <width>450</width>
+      <x>1120</x>
+      <y>500</y>
+      <width>200</width>
       <height>50</height>
      </rect>
     </property>
@@ -101,8 +65,8 @@ height: 50px;
    <widget class="QLineEdit" name="filename_text">
     <property name="geometry">
      <rect>
-      <x>850</x>
-      <y>300</y>
+      <x>640</x>
+      <y>500</y>
       <width>450</width>
       <height>50</height>
      </rect>
@@ -115,388 +79,6 @@ height: 50px;
     </property>
     <property name="placeholderText">
      <string>FileName.mp4</string>
-    </property>
-   </widget>
-   <widget class="QPushButton" name="camera2">
-    <property name="geometry">
-     <rect>
-      <x>240</x>
-      <y>610</y>
-      <width>130</width>
-      <height>48</height>
-     </rect>
-    </property>
-    <property name="minimumSize">
-     <size>
-      <width>130</width>
-      <height>48</height>
-     </size>
-    </property>
-    <property name="maximumSize">
-     <size>
-      <width>130</width>
-      <height>48</height>
-     </size>
-    </property>
-    <property name="autoFillBackground">
-     <bool>false</bool>
-    </property>
-    <property name="styleSheet">
-     <string notr="true">height:43px;
-width: 130px;
-text-align:left;
-padding: 5px 15px;
-background: transparent;</string>
-    </property>
-    <property name="text">
-     <string>CAMERA 2</string>
-    </property>
-   </widget>
-   <widget class="QPushButton" name="camera3">
-    <property name="geometry">
-     <rect>
-      <x>430</x>
-      <y>610</y>
-      <width>130</width>
-      <height>48</height>
-     </rect>
-    </property>
-    <property name="minimumSize">
-     <size>
-      <width>130</width>
-      <height>48</height>
-     </size>
-    </property>
-    <property name="maximumSize">
-     <size>
-      <width>130</width>
-      <height>48</height>
-     </size>
-    </property>
-    <property name="autoFillBackground">
-     <bool>false</bool>
-    </property>
-    <property name="styleSheet">
-     <string notr="true">height:43px;
-width: 130px;
-text-align:left;
-padding: 5px 15px;
-background: transparent;</string>
-    </property>
-    <property name="text">
-     <string>CAMERA 3</string>
-    </property>
-   </widget>
-   <widget class="QPushButton" name="camera4">
-    <property name="geometry">
-     <rect>
-      <x>620</x>
-      <y>610</y>
-      <width>130</width>
-      <height>48</height>
-     </rect>
-    </property>
-    <property name="minimumSize">
-     <size>
-      <width>130</width>
-      <height>48</height>
-     </size>
-    </property>
-    <property name="maximumSize">
-     <size>
-      <width>130</width>
-      <height>48</height>
-     </size>
-    </property>
-    <property name="autoFillBackground">
-     <bool>false</bool>
-    </property>
-    <property name="styleSheet">
-     <string notr="true">height:43px;
-width: 130px;
-text-align:left;
-padding: 5px 15px; 
-background: transparent;
-</string>
-    </property>
-    <property name="text">
-     <string>CAMERA 4</string>
-    </property>
-   </widget>
-   <widget class="QPushButton" name="camera5">
-    <property name="geometry">
-     <rect>
-      <x>50</x>
-      <y>670</y>
-      <width>130</width>
-      <height>48</height>
-     </rect>
-    </property>
-    <property name="minimumSize">
-     <size>
-      <width>130</width>
-      <height>48</height>
-     </size>
-    </property>
-    <property name="maximumSize">
-     <size>
-      <width>130</width>
-      <height>48</height>
-     </size>
-    </property>
-    <property name="autoFillBackground">
-     <bool>false</bool>
-    </property>
-    <property name="styleSheet">
-     <string notr="true">color: white;
-height:43px;
-width: 130px;
-text-align:left;
-padding: 5px 15px;
-background: transparent;</string>
-    </property>
-    <property name="text">
-     <string>CAMERA 5</string>
-    </property>
-   </widget>
-   <widget class="QPushButton" name="record_btn">
-    <property name="geometry">
-     <rect>
-      <x>1100</x>
-      <y>100</y>
-      <width>200</width>
-      <height>50</height>
-     </rect>
-    </property>
-    <property name="font">
-     <font>
-      <pointsize>14</pointsize>
-     </font>
-    </property>
-    <property name="styleSheet">
-     <string notr="true">color:#181818;
-background: #ffbd00;
-height: 50px;
-</string>
-    </property>
-    <property name="text">
-     <string>Record</string>
-    </property>
-   </widget>
-   <widget class="QPushButton" name="test_btn">
-    <property name="geometry">
-     <rect>
-      <x>850</x>
-      <y>100</y>
-      <width>200</width>
-      <height>50</height>
-     </rect>
-    </property>
-    <property name="font">
-     <font>
-      <pointsize>14</pointsize>
-     </font>
-    </property>
-    <property name="styleSheet">
-     <string notr="true">color:white;
-border: 2px solid #ffbd00;
-height: 50px;
-</string>
-    </property>
-    <property name="text">
-     <string>Test</string>
-    </property>
-   </widget>
-   <widget class="QPushButton" name="camera6">
-    <property name="geometry">
-     <rect>
-      <x>240</x>
-      <y>670</y>
-      <width>130</width>
-      <height>48</height>
-     </rect>
-    </property>
-    <property name="minimumSize">
-     <size>
-      <width>130</width>
-      <height>48</height>
-     </size>
-    </property>
-    <property name="maximumSize">
-     <size>
-      <width>130</width>
-      <height>48</height>
-     </size>
-    </property>
-    <property name="autoFillBackground">
-     <bool>false</bool>
-    </property>
-    <property name="styleSheet">
-     <string notr="true">color: white;
-height:43px;
-width: 130px;
-text-align:left;
-padding: 5px 15px;
-background: transparent;</string>
-    </property>
-    <property name="text">
-     <string>CAMERA 6</string>
-    </property>
-   </widget>
-   <widget class="QPushButton" name="camera7">
-    <property name="geometry">
-     <rect>
-      <x>430</x>
-      <y>670</y>
-      <width>130</width>
-      <height>48</height>
-     </rect>
-    </property>
-    <property name="minimumSize">
-     <size>
-      <width>130</width>
-      <height>48</height>
-     </size>
-    </property>
-    <property name="maximumSize">
-     <size>
-      <width>130</width>
-      <height>48</height>
-     </size>
-    </property>
-    <property name="autoFillBackground">
-     <bool>false</bool>
-    </property>
-    <property name="styleSheet">
-     <string notr="true">color: white;
-background: transparent;
-height:43px;
-width: 130px;
-text-align:left;
-padding: 5px 15px;</string>
-    </property>
-    <property name="text">
-     <string>CAMERA 7</string>
-    </property>
-   </widget>
-   <widget class="QPushButton" name="camera8">
-    <property name="geometry">
-     <rect>
-      <x>620</x>
-      <y>670</y>
-      <width>130</width>
-      <height>48</height>
-     </rect>
-    </property>
-    <property name="minimumSize">
-     <size>
-      <width>130</width>
-      <height>48</height>
-     </size>
-    </property>
-    <property name="maximumSize">
-     <size>
-      <width>130</width>
-      <height>48</height>
-     </size>
-    </property>
-    <property name="autoFillBackground">
-     <bool>false</bool>
-    </property>
-    <property name="styleSheet">
-     <string notr="true">color: white;
-background: transparent;
-height:43px;
-width: 130px;
-text-align:left;
-padding: 5px 15px;</string>
-    </property>
-    <property name="text">
-     <string>CAMERA 8</string>
-    </property>
-   </widget>
-   <widget class="QLabel" name="label_2">
-    <property name="geometry">
-     <rect>
-      <x>50</x>
-      <y>500</y>
-      <width>702</width>
-      <height>61</height>
-     </rect>
-    </property>
-    <property name="font">
-     <font>
-      <pointsize>20</pointsize>
-     </font>
-    </property>
-    <property name="styleSheet">
-     <string notr="true">color:rgb(255, 255, 255);
-</string>
-    </property>
-    <property name="text">
-     <string>STATUS</string>
-    </property>
-   </widget>
-   <widget class="Line" name="line">
-    <property name="geometry">
-     <rect>
-      <x>50</x>
-      <y>580</y>
-      <width>702</width>
-      <height>2</height>
-     </rect>
-    </property>
-    <property name="minimumSize">
-     <size>
-      <width>702</width>
-      <height>2</height>
-     </size>
-    </property>
-    <property name="maximumSize">
-     <size>
-      <width>702</width>
-      <height>2</height>
-     </size>
-    </property>
-    <property name="styleSheet">
-     <string notr="true">color: #ffbd00;</string>
-    </property>
-    <property name="frameShadow">
-     <enum>QFrame::Plain</enum>
-    </property>
-    <property name="lineWidth">
-     <number>2</number>
-    </property>
-    <property name="orientation">
-     <enum>Qt::Horizontal</enum>
-    </property>
-   </widget>
-   <widget class="QFrame" name="frame">
-    <property name="geometry">
-     <rect>
-      <x>50</x>
-      <y>120</y>
-      <width>702</width>
-      <height>348</height>
-     </rect>
-    </property>
-    <property name="minimumSize">
-     <size>
-      <width>702</width>
-      <height>348</height>
-     </size>
-    </property>
-    <property name="maximumSize">
-     <size>
-      <width>702</width>
-      <height>348</height>
-     </size>
-    </property>
-    <property name="frameShape">
-     <enum>QFrame::StyledPanel</enum>
-    </property>
-    <property name="frameShadow">
-     <enum>QFrame::Raised</enum>
     </property>
    </widget>
    <widget class="QLabel" name="label_5">
@@ -533,808 +115,13 @@ padding: 5px 15px;</string>
      <bool>true</bool>
     </property>
    </widget>
-   <widget class="QFrame" name="frame_2">
-    <property name="geometry">
-     <rect>
-      <x>840</x>
-      <y>390</y>
-      <width>501</width>
-      <height>331</height>
-     </rect>
-    </property>
-    <property name="styleSheet">
-     <string notr="true">background-color: #1D1D1D;
-</string>
-    </property>
-    <property name="frameShape">
-     <enum>QFrame::StyledPanel</enum>
-    </property>
-    <property name="frameShadow">
-     <enum>QFrame::Raised</enum>
-    </property>
-    <widget class="QLabel" name="imglabel">
-     <property name="geometry">
-      <rect>
-       <x>60</x>
-       <y>50</y>
-       <width>378</width>
-       <height>218</height>
-      </rect>
-     </property>
-     <property name="minimumSize">
-      <size>
-       <width>370</width>
-       <height>218</height>
-      </size>
-     </property>
-     <property name="maximumSize">
-      <size>
-       <width>378</width>
-       <height>218</height>
-      </size>
-     </property>
-     <property name="text">
-      <string/>
-     </property>
-     <property name="pixmap">
-      <pixmap>hmi-images/arch.png</pixmap>
-     </property>
-    </widget>
-    <widget class="QLabel" name="camera1_number">
-     <property name="geometry">
-      <rect>
-       <x>50</x>
-       <y>210</y>
-       <width>20</width>
-       <height>20</height>
-      </rect>
-     </property>
-     <property name="minimumSize">
-      <size>
-       <width>20</width>
-       <height>20</height>
-      </size>
-     </property>
-     <property name="maximumSize">
-      <size>
-       <width>20</width>
-       <height>20</height>
-      </size>
-     </property>
-     <property name="font">
-      <font>
-       <family>Sofia Pro</family>
-       <pointsize>14</pointsize>
-      </font>
-     </property>
-     <property name="styleSheet">
-      <string notr="true">background: #181818;
-border: 1px solid #ffbd00;
-border-radius: 200px;</string>
-     </property>
-     <property name="text">
-      <string>1</string>
-     </property>
-     <property name="alignment">
-      <set>Qt::AlignCenter</set>
-     </property>
-    </widget>
-    <widget class="QLabel" name="camera2_frame">
-     <property name="geometry">
-      <rect>
-       <x>70</x>
-       <y>90</y>
-       <width>42</width>
-       <height>32</height>
-      </rect>
-     </property>
-     <property name="minimumSize">
-      <size>
-       <width>42</width>
-       <height>32</height>
-      </size>
-     </property>
-     <property name="maximumSize">
-      <size>
-       <width>42</width>
-       <height>32</height>
-      </size>
-     </property>
-     <property name="styleSheet">
-      <string notr="true">background: rgba(255, 173, 0, 0.1);
-border: 1px solid #987022;
-
-</string>
-     </property>
-     <property name="text">
-      <string/>
-     </property>
-    </widget>
-    <widget class="QLabel" name="camera2_number">
-     <property name="geometry">
-      <rect>
-       <x>60</x>
-       <y>110</y>
-       <width>20</width>
-       <height>20</height>
-      </rect>
-     </property>
-     <property name="minimumSize">
-      <size>
-       <width>20</width>
-       <height>20</height>
-      </size>
-     </property>
-     <property name="maximumSize">
-      <size>
-       <width>20</width>
-       <height>20</height>
-      </size>
-     </property>
-     <property name="font">
-      <font>
-       <family>Sofia Pro</family>
-       <pointsize>14</pointsize>
-      </font>
-     </property>
-     <property name="styleSheet">
-      <string notr="true">background: #181818;
-border: 1px solid #ffbd00;
-border-radius: 200px;</string>
-     </property>
-     <property name="text">
-      <string>2</string>
-     </property>
-     <property name="alignment">
-      <set>Qt::AlignCenter</set>
-     </property>
-    </widget>
-    <widget class="QLabel" name="camera3_number">
-     <property name="geometry">
-      <rect>
-       <x>210</x>
-       <y>80</y>
-       <width>20</width>
-       <height>20</height>
-      </rect>
-     </property>
-     <property name="minimumSize">
-      <size>
-       <width>20</width>
-       <height>20</height>
-      </size>
-     </property>
-     <property name="maximumSize">
-      <size>
-       <width>20</width>
-       <height>20</height>
-      </size>
-     </property>
-     <property name="font">
-      <font>
-       <family>Sofia Pro</family>
-       <pointsize>14</pointsize>
-      </font>
-     </property>
-     <property name="styleSheet">
-      <string notr="true">background: #181818;
-border: 1px solid #ffbd00;
-border-radius: 200px;</string>
-     </property>
-     <property name="text">
-      <string>3</string>
-     </property>
-     <property name="alignment">
-      <set>Qt::AlignCenter</set>
-     </property>
-    </widget>
-    <widget class="QLabel" name="camera3_frame">
-     <property name="geometry">
-      <rect>
-       <x>220</x>
-       <y>60</y>
-       <width>42</width>
-       <height>32</height>
-      </rect>
-     </property>
-     <property name="minimumSize">
-      <size>
-       <width>42</width>
-       <height>32</height>
-      </size>
-     </property>
-     <property name="maximumSize">
-      <size>
-       <width>42</width>
-       <height>32</height>
-      </size>
-     </property>
-     <property name="styleSheet">
-      <string notr="true">background: rgba(255, 173, 0, 0.1);
-border: 1px solid #987022;
-</string>
-     </property>
-     <property name="text">
-      <string/>
-     </property>
-    </widget>
-    <widget class="QLabel" name="camera4_number">
-     <property name="geometry">
-      <rect>
-       <x>290</x>
-       <y>140</y>
-       <width>20</width>
-       <height>20</height>
-      </rect>
-     </property>
-     <property name="minimumSize">
-      <size>
-       <width>20</width>
-       <height>20</height>
-      </size>
-     </property>
-     <property name="maximumSize">
-      <size>
-       <width>20</width>
-       <height>20</height>
-      </size>
-     </property>
-     <property name="font">
-      <font>
-       <family>Sofia Pro</family>
-       <pointsize>14</pointsize>
-      </font>
-     </property>
-     <property name="styleSheet">
-      <string notr="true">background: #181818;
-border: 1px solid #ffbd00;
-border-radius: 200px;</string>
-     </property>
-     <property name="text">
-      <string>4</string>
-     </property>
-     <property name="alignment">
-      <set>Qt::AlignCenter</set>
-     </property>
-    </widget>
-    <widget class="QLabel" name="camera4_frame">
-     <property name="geometry">
-      <rect>
-       <x>300</x>
-       <y>120</y>
-       <width>42</width>
-       <height>32</height>
-      </rect>
-     </property>
-     <property name="minimumSize">
-      <size>
-       <width>42</width>
-       <height>32</height>
-      </size>
-     </property>
-     <property name="maximumSize">
-      <size>
-       <width>42</width>
-       <height>32</height>
-      </size>
-     </property>
-     <property name="styleSheet">
-      <string notr="true">background: rgba(255, 173, 0, 0.1);
-border: 1px solid #987022;
-</string>
-     </property>
-     <property name="text">
-      <string/>
-     </property>
-    </widget>
-    <widget class="QLabel" name="camera5_frame">
-     <property name="geometry">
-      <rect>
-       <x>300</x>
-       <y>210</y>
-       <width>42</width>
-       <height>32</height>
-      </rect>
-     </property>
-     <property name="minimumSize">
-      <size>
-       <width>42</width>
-       <height>32</height>
-      </size>
-     </property>
-     <property name="maximumSize">
-      <size>
-       <width>42</width>
-       <height>32</height>
-      </size>
-     </property>
-     <property name="styleSheet">
-      <string notr="true">background: rgba(255, 173, 0, 0.1);
-border: 1px solid #987022;
-</string>
-     </property>
-     <property name="text">
-      <string/>
-     </property>
-    </widget>
-    <widget class="QLabel" name="camera5_number">
-     <property name="geometry">
-      <rect>
-       <x>290</x>
-       <y>230</y>
-       <width>20</width>
-       <height>20</height>
-      </rect>
-     </property>
-     <property name="minimumSize">
-      <size>
-       <width>20</width>
-       <height>20</height>
-      </size>
-     </property>
-     <property name="maximumSize">
-      <size>
-       <width>20</width>
-       <height>20</height>
-      </size>
-     </property>
-     <property name="font">
-      <font>
-       <family>Sofia Pro</family>
-       <pointsize>14</pointsize>
-      </font>
-     </property>
-     <property name="styleSheet">
-      <string notr="true">background: #181818;
-border: 1px solid #ffbd00;
-border-radius: 200px;</string>
-     </property>
-     <property name="text">
-      <string>5</string>
-     </property>
-     <property name="alignment">
-      <set>Qt::AlignCenter</set>
-     </property>
-    </widget>
-    <widget class="QLabel" name="camera6_frame">
-     <property name="geometry">
-      <rect>
-       <x>380</x>
-       <y>90</y>
-       <width>42</width>
-       <height>32</height>
-      </rect>
-     </property>
-     <property name="minimumSize">
-      <size>
-       <width>42</width>
-       <height>32</height>
-      </size>
-     </property>
-     <property name="maximumSize">
-      <size>
-       <width>42</width>
-       <height>32</height>
-      </size>
-     </property>
-     <property name="styleSheet">
-      <string notr="true">background: rgba(255, 173, 0, 0.1);
-border: 1px solid #987022;
-</string>
-     </property>
-     <property name="text">
-      <string/>
-     </property>
-    </widget>
-    <widget class="QLabel" name="camera6_number">
-     <property name="geometry">
-      <rect>
-       <x>370</x>
-       <y>110</y>
-       <width>20</width>
-       <height>20</height>
-      </rect>
-     </property>
-     <property name="minimumSize">
-      <size>
-       <width>20</width>
-       <height>20</height>
-      </size>
-     </property>
-     <property name="maximumSize">
-      <size>
-       <width>20</width>
-       <height>20</height>
-      </size>
-     </property>
-     <property name="font">
-      <font>
-       <family>Sofia Pro</family>
-       <pointsize>14</pointsize>
-      </font>
-     </property>
-     <property name="styleSheet">
-      <string notr="true">background: #181818;
-border: 1px solid #ffbd00;
-border-radius: 200px;</string>
-     </property>
-     <property name="text">
-      <string>6</string>
-     </property>
-     <property name="alignment">
-      <set>Qt::AlignCenter</set>
-     </property>
-    </widget>
-    <widget class="QLabel" name="camera7_number">
-     <property name="geometry">
-      <rect>
-       <x>270</x>
-       <y>50</y>
-       <width>20</width>
-       <height>20</height>
-      </rect>
-     </property>
-     <property name="minimumSize">
-      <size>
-       <width>20</width>
-       <height>20</height>
-      </size>
-     </property>
-     <property name="maximumSize">
-      <size>
-       <width>20</width>
-       <height>20</height>
-      </size>
-     </property>
-     <property name="font">
-      <font>
-       <family>Sofia Pro</family>
-       <pointsize>14</pointsize>
-      </font>
-     </property>
-     <property name="styleSheet">
-      <string notr="true">background: #181818;
-border: 1px solid #ffbd00;
-border-radius: 200px;</string>
-     </property>
-     <property name="text">
-      <string>7</string>
-     </property>
-     <property name="alignment">
-      <set>Qt::AlignCenter</set>
-     </property>
-    </widget>
-    <widget class="QLabel" name="camera7_frame">
-     <property name="geometry">
-      <rect>
-       <x>280</x>
-       <y>30</y>
-       <width>42</width>
-       <height>32</height>
-      </rect>
-     </property>
-     <property name="minimumSize">
-      <size>
-       <width>42</width>
-       <height>32</height>
-      </size>
-     </property>
-     <property name="maximumSize">
-      <size>
-       <width>42</width>
-       <height>32</height>
-      </size>
-     </property>
-     <property name="styleSheet">
-      <string notr="true">background: rgba(255, 173, 0, 0.1);
-border: 1px solid #987022;
-</string>
-     </property>
-     <property name="text">
-      <string/>
-     </property>
-    </widget>
-    <widget class="QLabel" name="camera8_frame">
-     <property name="geometry">
-      <rect>
-       <x>160</x>
-       <y>80</y>
-       <width>42</width>
-       <height>32</height>
-      </rect>
-     </property>
-     <property name="minimumSize">
-      <size>
-       <width>42</width>
-       <height>32</height>
-      </size>
-     </property>
-     <property name="maximumSize">
-      <size>
-       <width>42</width>
-       <height>32</height>
-      </size>
-     </property>
-     <property name="styleSheet">
-      <string notr="true">background: rgba(255, 173, 0, 0.1);
-border: 1px solid #987022;
-</string>
-     </property>
-     <property name="text">
-      <string/>
-     </property>
-    </widget>
-    <widget class="QLabel" name="camera8_number">
-     <property name="geometry">
-      <rect>
-       <x>150</x>
-       <y>100</y>
-       <width>20</width>
-       <height>20</height>
-      </rect>
-     </property>
-     <property name="minimumSize">
-      <size>
-       <width>20</width>
-       <height>20</height>
-      </size>
-     </property>
-     <property name="maximumSize">
-      <size>
-       <width>20</width>
-       <height>20</height>
-      </size>
-     </property>
-     <property name="font">
-      <font>
-       <family>Sofia Pro</family>
-       <pointsize>14</pointsize>
-      </font>
-     </property>
-     <property name="styleSheet">
-      <string notr="true">background: #181818;
-border: 1px solid #ffbd00;
-border-radius: 200px;</string>
-     </property>
-     <property name="text">
-      <string>8</string>
-     </property>
-     <property name="alignment">
-      <set>Qt::AlignCenter</set>
-     </property>
-    </widget>
-    <widget class="QLabel" name="camera1_frame">
-     <property name="geometry">
-      <rect>
-       <x>60</x>
-       <y>190</y>
-       <width>42</width>
-       <height>32</height>
-      </rect>
-     </property>
-     <property name="minimumSize">
-      <size>
-       <width>42</width>
-       <height>32</height>
-      </size>
-     </property>
-     <property name="maximumSize">
-      <size>
-       <width>42</width>
-       <height>32</height>
-      </size>
-     </property>
-     <property name="styleSheet">
-      <string notr="true">background: rgba(255, 173, 0, 0.4);
-border: 1px solid #ffbd00;
-
-</string>
-     </property>
-     <property name="text">
-      <string/>
-     </property>
-    </widget>
-    <zorder>imglabel</zorder>
-    <zorder>camera2_frame</zorder>
-    <zorder>camera2_number</zorder>
-    <zorder>camera3_frame</zorder>
-    <zorder>camera3_number</zorder>
-    <zorder>camera4_frame</zorder>
-    <zorder>camera4_number</zorder>
-    <zorder>camera5_frame</zorder>
-    <zorder>camera5_number</zorder>
-    <zorder>camera6_frame</zorder>
-    <zorder>camera6_number</zorder>
-    <zorder>camera7_frame</zorder>
-    <zorder>camera7_number</zorder>
-    <zorder>camera8_frame</zorder>
-    <zorder>camera8_number</zorder>
-    <zorder>camera1_frame</zorder>
-    <zorder>camera1_number</zorder>
-   </widget>
-   <widget class="QLabel" name="label_7">
-    <property name="geometry">
-     <rect>
-      <x>140</x>
-      <y>620</y>
-      <width>31</width>
-      <height>20</height>
-     </rect>
-    </property>
-    <property name="styleSheet">
-     <string notr="true">background: transparent;</string>
-    </property>
-    <property name="text">
-     <string/>
-    </property>
-    <property name="pixmap">
-     <pixmap>hmi-images/offline.png</pixmap>
-    </property>
-    <property name="alignment">
-     <set>Qt::AlignCenter</set>
-    </property>
-   </widget>
-   <widget class="QLabel" name="label_9">
-    <property name="geometry">
-     <rect>
-      <x>520</x>
-      <y>620</y>
-      <width>31</width>
-      <height>20</height>
-     </rect>
-    </property>
-    <property name="styleSheet">
-     <string notr="true">background: transparent;</string>
-    </property>
-    <property name="text">
-     <string/>
-    </property>
-    <property name="pixmap">
-     <pixmap>hmi-images/offline.png</pixmap>
-    </property>
-    <property name="alignment">
-     <set>Qt::AlignCenter</set>
-    </property>
-   </widget>
-   <widget class="QLabel" name="label_10">
-    <property name="geometry">
-     <rect>
-      <x>140</x>
-      <y>680</y>
-      <width>31</width>
-      <height>20</height>
-     </rect>
-    </property>
-    <property name="styleSheet">
-     <string notr="true">background: transparent;</string>
-    </property>
-    <property name="text">
-     <string/>
-    </property>
-    <property name="pixmap">
-     <pixmap>hmi-images/offline.png</pixmap>
-    </property>
-    <property name="alignment">
-     <set>Qt::AlignCenter</set>
-    </property>
-   </widget>
-   <widget class="QLabel" name="label_11">
-    <property name="geometry">
-     <rect>
-      <x>710</x>
-      <y>620</y>
-      <width>31</width>
-      <height>20</height>
-     </rect>
-    </property>
-    <property name="styleSheet">
-     <string notr="true">background: transparent;</string>
-    </property>
-    <property name="text">
-     <string/>
-    </property>
-    <property name="pixmap">
-     <pixmap>hmi-images/offline.png</pixmap>
-    </property>
-    <property name="alignment">
-     <set>Qt::AlignCenter</set>
-    </property>
-   </widget>
-   <widget class="QLabel" name="label_12">
-    <property name="geometry">
-     <rect>
-      <x>330</x>
-      <y>680</y>
-      <width>31</width>
-      <height>20</height>
-     </rect>
-    </property>
-    <property name="styleSheet">
-     <string notr="true">background: transparent;</string>
-    </property>
-    <property name="text">
-     <string/>
-    </property>
-    <property name="pixmap">
-     <pixmap>hmi-images/offline.png</pixmap>
-    </property>
-    <property name="alignment">
-     <set>Qt::AlignCenter</set>
-    </property>
-   </widget>
-   <widget class="QLabel" name="label_13">
-    <property name="geometry">
-     <rect>
-      <x>710</x>
-      <y>680</y>
-      <width>31</width>
-      <height>20</height>
-     </rect>
-    </property>
-    <property name="styleSheet">
-     <string notr="true">background: transparent;</string>
-    </property>
-    <property name="text">
-     <string/>
-    </property>
-    <property name="pixmap">
-     <pixmap>hmi-images/offline.png</pixmap>
-    </property>
-    <property name="alignment">
-     <set>Qt::AlignCenter</set>
-    </property>
-   </widget>
-   <widget class="QLabel" name="label_14">
-    <property name="geometry">
-     <rect>
-      <x>520</x>
-      <y>680</y>
-      <width>31</width>
-      <height>20</height>
-     </rect>
-    </property>
-    <property name="styleSheet">
-     <string notr="true">background: transparent;</string>
-    </property>
-    <property name="text">
-     <string/>
-    </property>
-    <property name="pixmap">
-     <pixmap>hmi-images/offline.png</pixmap>
-    </property>
-    <property name="alignment">
-     <set>Qt::AlignCenter</set>
-    </property>
-   </widget>
-   <widget class="QLabel" name="label_8">
-    <property name="geometry">
-     <rect>
-      <x>330</x>
-      <y>620</y>
-      <width>31</width>
-      <height>20</height>
-     </rect>
-    </property>
-    <property name="styleSheet">
-     <string notr="true">background: transparent;</string>
-    </property>
-    <property name="text">
-     <string/>
-    </property>
-    <property name="pixmap">
-     <pixmap>hmi-images/offline.png</pixmap>
-    </property>
-    <property name="alignment">
-     <set>Qt::AlignCenter</set>
-    </property>
-   </widget>
    <widget class="QPushButton" name="menu_dashboard">
     <property name="enabled">
      <bool>true</bool>
     </property>
     <property name="geometry">
      <rect>
-      <x>350</x>
+      <x>330</x>
       <y>10</y>
       <width>250</width>
       <height>80</height>
@@ -1384,313 +171,170 @@ border-bottom-color: #ffbd00;
      <bool>false</bool>
     </property>
    </widget>
-   <widget class="QLabel" name="label_6">
+   <widget class="QLineEdit" name="ip1_text">
     <property name="geometry">
      <rect>
-      <x>1240</x>
-      <y>30</y>
-      <width>71</width>
-      <height>61</height>
+      <x>640</x>
+      <y>300</y>
+      <width>450</width>
+      <height>50</height>
      </rect>
     </property>
     <property name="styleSheet">
-     <string notr="true">background: transparent;</string>
+     <string notr="true">border: 1px solid white;</string>
     </property>
     <property name="text">
-     <string/>
+     <string>192.168.0.0</string>
     </property>
-    <property name="pixmap">
-     <pixmap>green-btn.png</pixmap>
+    <property name="alignment">
+     <set>Qt::AlignCenter</set>
+    </property>
+    <property name="placeholderText">
+     <string>FileName.mp4</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="cam1_btn">
+    <property name="geometry">
+     <rect>
+      <x>1120</x>
+      <y>300</y>
+      <width>200</width>
+      <height>50</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <pointsize>14</pointsize>
+     </font>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">color:white;
+border: 2px solid #ffbd00;
+height: 50px;
+</string>
+    </property>
+    <property name="text">
+     <string>Start</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="cam2_btn">
+    <property name="geometry">
+     <rect>
+      <x>1120</x>
+      <y>400</y>
+      <width>200</width>
+      <height>50</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <pointsize>14</pointsize>
+     </font>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">color:white;
+border: 2px solid #ffbd00;
+height: 50px;
+</string>
+    </property>
+    <property name="text">
+     <string>Start</string>
+    </property>
+   </widget>
+   <widget class="QLineEdit" name="ip2_text">
+    <property name="geometry">
+     <rect>
+      <x>640</x>
+      <y>400</y>
+      <width>450</width>
+      <height>50</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">border: 1px solid white;</string>
+    </property>
+    <property name="text">
+     <string>192.168.0.0</string>
+    </property>
+    <property name="alignment">
+     <set>Qt::AlignCenter</set>
+    </property>
+    <property name="placeholderText">
+     <string>FileName.mp4</string>
+    </property>
+   </widget>
+   <widget class="QTextBrowser" name="status_label">
+    <property name="geometry">
+     <rect>
+      <x>620</x>
+      <y>120</y>
+      <width>711</width>
+      <height>150</height>
+     </rect>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="stop_btn">
+    <property name="geometry">
+     <rect>
+      <x>1120</x>
+      <y>40</y>
+      <width>200</width>
+      <height>50</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <pointsize>14</pointsize>
+     </font>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">color:white;
+border: 2px solid #ffbd00;
+height: 50px;
+</string>
+    </property>
+    <property name="text">
+     <string>Stop</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="frame1">
+    <property name="geometry">
+     <rect>
+      <x>30</x>
+      <y>120</y>
+      <width>256</width>
+      <height>480</height>
+     </rect>
+    </property>
+    <property name="layoutDirection">
+     <enum>Qt::LeftToRight</enum>
+    </property>
+    <property name="text">
+     <string>Frame1</string>
     </property>
     <property name="alignment">
      <set>Qt::AlignCenter</set>
     </property>
    </widget>
-   <widget class="QLabel" name="camera1_image">
+   <widget class="QLabel" name="frame2">
     <property name="geometry">
      <rect>
-      <x>50</x>
-      <y>610</y>
-      <width>130</width>
-      <height>48</height>
+      <x>330</x>
+      <y>120</y>
+      <width>256</width>
+      <height>480</height>
      </rect>
     </property>
-    <property name="minimumSize">
-     <size>
-      <width>130</width>
-      <height>48</height>
-     </size>
-    </property>
-    <property name="maximumSize">
-     <size>
-      <width>130</width>
-      <height>48</height>
-     </size>
-    </property>
-    <property name="styleSheet">
-     <string notr="true">border: 2px solid white;</string>
+    <property name="layoutDirection">
+     <enum>Qt::LeftToRight</enum>
     </property>
     <property name="text">
-     <string/>
+     <string>Frame1</string>
     </property>
-    <property name="pixmap">
-     <pixmap>hmi-images/btn-on.png</pixmap>
-    </property>
-   </widget>
-   <widget class="QLabel" name="camera2_image">
-    <property name="geometry">
-     <rect>
-      <x>240</x>
-      <y>610</y>
-      <width>130</width>
-      <height>48</height>
-     </rect>
-    </property>
-    <property name="minimumSize">
-     <size>
-      <width>130</width>
-      <height>48</height>
-     </size>
-    </property>
-    <property name="maximumSize">
-     <size>
-      <width>130</width>
-      <height>48</height>
-     </size>
-    </property>
-    <property name="styleSheet">
-     <string notr="true">border: 2px solid #565555;
-</string>
-    </property>
-    <property name="text">
-     <string/>
-    </property>
-    <property name="pixmap">
-     <pixmap>hmi-images/btn-off.png</pixmap>
+    <property name="alignment">
+     <set>Qt::AlignCenter</set>
     </property>
    </widget>
-   <widget class="QLabel" name="camera3_image">
-    <property name="geometry">
-     <rect>
-      <x>430</x>
-      <y>610</y>
-      <width>130</width>
-      <height>48</height>
-     </rect>
-    </property>
-    <property name="minimumSize">
-     <size>
-      <width>130</width>
-      <height>48</height>
-     </size>
-    </property>
-    <property name="maximumSize">
-     <size>
-      <width>130</width>
-      <height>48</height>
-     </size>
-    </property>
-    <property name="styleSheet">
-     <string notr="true">border: 2px solid #565555;
-</string>
-    </property>
-    <property name="text">
-     <string/>
-    </property>
-    <property name="pixmap">
-     <pixmap>hmi-images/btn-off.png</pixmap>
-    </property>
-   </widget>
-   <widget class="QLabel" name="camera4_image">
-    <property name="geometry">
-     <rect>
-      <x>620</x>
-      <y>610</y>
-      <width>130</width>
-      <height>48</height>
-     </rect>
-    </property>
-    <property name="minimumSize">
-     <size>
-      <width>130</width>
-      <height>48</height>
-     </size>
-    </property>
-    <property name="maximumSize">
-     <size>
-      <width>130</width>
-      <height>48</height>
-     </size>
-    </property>
-    <property name="styleSheet">
-     <string notr="true">border: 2px solid #565555;</string>
-    </property>
-    <property name="text">
-     <string/>
-    </property>
-    <property name="pixmap">
-     <pixmap>hmi-images/btn-off.png</pixmap>
-    </property>
-   </widget>
-   <widget class="QLabel" name="camera8_image">
-    <property name="geometry">
-     <rect>
-      <x>620</x>
-      <y>670</y>
-      <width>130</width>
-      <height>48</height>
-     </rect>
-    </property>
-    <property name="minimumSize">
-     <size>
-      <width>130</width>
-      <height>48</height>
-     </size>
-    </property>
-    <property name="maximumSize">
-     <size>
-      <width>130</width>
-      <height>48</height>
-     </size>
-    </property>
-    <property name="styleSheet">
-     <string notr="true">border: 2px solid #565555;</string>
-    </property>
-    <property name="text">
-     <string/>
-    </property>
-    <property name="pixmap">
-     <pixmap>hmi-images/btn-off.png</pixmap>
-    </property>
-   </widget>
-   <widget class="QLabel" name="camera7_image">
-    <property name="geometry">
-     <rect>
-      <x>430</x>
-      <y>670</y>
-      <width>130</width>
-      <height>48</height>
-     </rect>
-    </property>
-    <property name="minimumSize">
-     <size>
-      <width>130</width>
-      <height>48</height>
-     </size>
-    </property>
-    <property name="maximumSize">
-     <size>
-      <width>130</width>
-      <height>48</height>
-     </size>
-    </property>
-    <property name="styleSheet">
-     <string notr="true">border: 2px solid #565555;</string>
-    </property>
-    <property name="text">
-     <string/>
-    </property>
-    <property name="pixmap">
-     <pixmap>hmi-images/btn-off.png</pixmap>
-    </property>
-   </widget>
-   <widget class="QLabel" name="camera6_image">
-    <property name="geometry">
-     <rect>
-      <x>240</x>
-      <y>670</y>
-      <width>130</width>
-      <height>48</height>
-     </rect>
-    </property>
-    <property name="minimumSize">
-     <size>
-      <width>130</width>
-      <height>48</height>
-     </size>
-    </property>
-    <property name="maximumSize">
-     <size>
-      <width>130</width>
-      <height>48</height>
-     </size>
-    </property>
-    <property name="styleSheet">
-     <string notr="true">border: 2px solid #565555;</string>
-    </property>
-    <property name="text">
-     <string/>
-    </property>
-    <property name="pixmap">
-     <pixmap>hmi-images/btn-off.png</pixmap>
-    </property>
-   </widget>
-   <widget class="QLabel" name="camera5_image">
-    <property name="geometry">
-     <rect>
-      <x>50</x>
-      <y>670</y>
-      <width>130</width>
-      <height>48</height>
-     </rect>
-    </property>
-    <property name="minimumSize">
-     <size>
-      <width>130</width>
-      <height>48</height>
-     </size>
-    </property>
-    <property name="maximumSize">
-     <size>
-      <width>130</width>
-      <height>48</height>
-     </size>
-    </property>
-    <property name="styleSheet">
-     <string notr="true">border: 2px solid #565555;</string>
-    </property>
-    <property name="text">
-     <string/>
-    </property>
-    <property name="pixmap">
-     <pixmap>hmi-images/btn-off.png</pixmap>
-    </property>
-   </widget>
-   <zorder>camera8_image</zorder>
-   <zorder>camera7_image</zorder>
-   <zorder>camera6_image</zorder>
-   <zorder>camera5_image</zorder>
-   <zorder>camera4_image</zorder>
-   <zorder>camera3_image</zorder>
-   <zorder>camera2_image</zorder>
-   <zorder>camera1_image</zorder>
-   <zorder>camera5</zorder>
-   <zorder>camera7</zorder>
-   <zorder>camera8</zorder>
-   <zorder>camera3</zorder>
-   <zorder>camera1</zorder>
-   <zorder>detect_btn</zorder>
-   <zorder>filename_text</zorder>
-   <zorder>camera2</zorder>
-   <zorder>camera4</zorder>
-   <zorder>record_btn</zorder>
-   <zorder>test_btn</zorder>
-   <zorder>camera6</zorder>
-   <zorder>label_2</zorder>
-   <zorder>line</zorder>
-   <zorder>frame</zorder>
-   <zorder>label_5</zorder>
-   <zorder>frame_2</zorder>
-   <zorder>label_7</zorder>
-   <zorder>label_9</zorder>
-   <zorder>label_10</zorder>
-   <zorder>label_11</zorder>
-   <zorder>label_12</zorder>
-   <zorder>label_13</zorder>
-   <zorder>label_14</zorder>
-   <zorder>label_8</zorder>
-   <zorder>menu_dashboard</zorder>
-   <zorder>label_6</zorder>
   </widget>
   <widget class="QStatusBar" name="statusbar">
    <property name="styleSheet">

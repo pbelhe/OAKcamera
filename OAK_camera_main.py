@@ -19,3 +19,4 @@ for device in dai.Device.getAllAvailableDevices():
 for t in threads:
     t.join()
 print("Exiting Main Thread")
+input("Press enter to exit..")

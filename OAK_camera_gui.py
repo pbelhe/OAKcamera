@@ -141,7 +141,7 @@ def delete_files(dir = "video"):
                 os.unlink(file_path)
         except Exception as e:
             print(e)
-delete_files()
+#delete_files()
 
 # Main 
 app = QApplication(sys.argv)
