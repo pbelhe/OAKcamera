@@ -7,6 +7,12 @@ import time
 import os
 import threading
 import time
+from PyQt5.uic import loadUi
+from PyQt5 import QtCore, QtGui, QtWidgets
+from PyQt5.QtWidgets import QApplication, QWidget, QHBoxLayout, QVBoxLayout, QDialog, QMainWindow, QComboBox
+from matplotlib import widgets
+from matplotlib.widgets import Widget
+from PyQt5.QtGui import QPixmap
 
 class OAK_camera(threading.Thread):
     ip = "192.168.1.100"
@@ -42,7 +48,7 @@ class OAK_camera(threading.Thread):
 
     #generate filename
     dirname = "video"
-    dt_now = time.strftime("%Y%m%d-%H%M%S")
+    dt_now = time.strftime("%Y%m%d-%H%M%S")+"_"+ip.replace(".","_")
     filepath =  os.path.join(os.path.dirname(os.path.abspath(__file__)), dirname,dt_now+".mp4")
     out = None
 
@@ -112,16 +118,29 @@ class OAK_camera(threading.Thread):
             while True:
                 frame = qRgb.get().getCvFrame()
                 self.out.write(frame)
+                self.image = QtGui.QImage(frame.data, frame.shape[1], frame.shape[0], QtGui.QImage.Format_RGB888).rgbSwapped()
+                self.display.setPixmap(QtGui.QPixmap.fromImage(self.image))
                 cv2.imshow(self.ip, frame )
                 if cv2.waitKey(1) == ord('q'):
                     break
-        self.out.release()
-        print("File Saved successfully: "+self.dt_now+".mp4")
-        cv2.destroyWindow(self.ip)
-        self.stop()
+            self.out.release()
+            print("File Saved successfully: "+self.dt_now+".mp4")
+            self.display.setStyleSheet("QLabel { background-color : black; }");
+            cv2.destroyWindow(self.ip)
+            self.stop()
+
+    def getFilepath(self):
+        return self.filepath
+
+    def getFilename(self):
+        return self.dt_now
 
     def stop(self):
+        self.out.release()
+        print("File Saved successfully: "+self.dt_now+".mp4")
+        self.display.setStyleSheet("QLabel { background-color : black; }");
         self._stop_event.set()
 
     def stopped(self):
+        print(self.ip+" stopped ->"+str(self._stop_event.is_set()))
         return self._stop_event.is_set()
