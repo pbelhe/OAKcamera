@@ -81,34 +81,6 @@ height: 50px;
      <string>FileName.mp4</string>
     </property>
    </widget>
-   <widget class="QFrame" name="frame1">
-    <property name="geometry">
-     <rect>
-      <x>30</x>
-      <y>120</y>
-      <width>256</width>
-      <height>480</height>
-     </rect>
-    </property>
-    <property name="minimumSize">
-     <size>
-      <width>128</width>
-      <height>240</height>
-     </size>
-    </property>
-    <property name="maximumSize">
-     <size>
-      <width>256</width>
-      <height>480</height>
-     </size>
-    </property>
-    <property name="frameShape">
-     <enum>QFrame::StyledPanel</enum>
-    </property>
-    <property name="frameShadow">
-     <enum>QFrame::Raised</enum>
-    </property>
-   </widget>
    <widget class="QLabel" name="label_5">
     <property name="enabled">
      <bool>true</bool>
@@ -197,34 +169,6 @@ border-bottom-color: #ffbd00;
     </property>
     <property name="checkable">
      <bool>false</bool>
-    </property>
-   </widget>
-   <widget class="QFrame" name="frame2">
-    <property name="geometry">
-     <rect>
-      <x>330</x>
-      <y>120</y>
-      <width>256</width>
-      <height>480</height>
-     </rect>
-    </property>
-    <property name="minimumSize">
-     <size>
-      <width>128</width>
-      <height>240</height>
-     </size>
-    </property>
-    <property name="maximumSize">
-     <size>
-      <width>256</width>
-      <height>480</height>
-     </size>
-    </property>
-    <property name="frameShape">
-     <enum>QFrame::StyledPanel</enum>
-    </property>
-    <property name="frameShadow">
-     <enum>QFrame::Raised</enum>
     </property>
    </widget>
    <widget class="QLineEdit" name="ip1_text">
@@ -351,6 +295,44 @@ height: 50px;
     </property>
     <property name="text">
      <string>Stop</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="frame1">
+    <property name="geometry">
+     <rect>
+      <x>30</x>
+      <y>120</y>
+      <width>256</width>
+      <height>480</height>
+     </rect>
+    </property>
+    <property name="layoutDirection">
+     <enum>Qt::LeftToRight</enum>
+    </property>
+    <property name="text">
+     <string>Frame1</string>
+    </property>
+    <property name="alignment">
+     <set>Qt::AlignCenter</set>
+    </property>
+   </widget>
+   <widget class="QLabel" name="frame2">
+    <property name="geometry">
+     <rect>
+      <x>330</x>
+      <y>120</y>
+      <width>256</width>
+      <height>480</height>
+     </rect>
+    </property>
+    <property name="layoutDirection">
+     <enum>Qt::LeftToRight</enum>
+    </property>
+    <property name="text">
+     <string>Frame1</string>
+    </property>
+    <property name="alignment">
+     <set>Qt::AlignCenter</set>
     </property>
    </widget>
   </widget>

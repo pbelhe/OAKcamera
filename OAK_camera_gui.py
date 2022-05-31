@@ -58,12 +58,13 @@ class Dashboard(QMainWindow):
         
     def cam1Action(self):
         if (len(self.threads) > 0):
-            self.threads[0] = OAK_camera(self.devices[0],self.frame2)
+            self.threads[0] = OAK_camera(self.devices[0],self.frame1)
             thread = self.threads[0]
             while thread.stopped() is False:
                     time.sleep(0.1)
                     thread.stop()
             thread.start()
+            self.cam1_btn.setText("Restart")
             self.setStatus("Started "+thread.getFilename())
         else:
             self.setStatus("No devices found")   
@@ -77,6 +78,7 @@ class Dashboard(QMainWindow):
                     time.sleep(0.1)
                     thread.stop()
             thread.start()
+            self.cam2_btn.setText("Restart")
             self.setStatus("Started "+thread.getFilename())
         else:
             self.setStatus("No devices found")  
