@@ -1,6 +1,7 @@
 from asyncio.windows_events import NULL
 from re import T
-import sys 
+import sys
+import threading 
 from PyQt5.uic import loadUi
 from PyQt5 import QtCore, QtGui, QtWidgets
 from PyQt5.QtWidgets import QApplication, QWidget, QHBoxLayout, QVBoxLayout, QDialog, QMainWindow, QComboBox
@@ -12,94 +13,133 @@ import cv2
 import depthai as dai
 import time
 import os
-
-# Camera Setup
-pipeline = dai.Pipeline()
-
-camRgb = pipeline.createColorCamera()
-
-xoutRgb = pipeline.createXLinkOut()
-xoutRgb.setStreamName("rgb")
-camRgb.preview.link(xoutRgb.input)
+from OAK_camera import OAK_camera
 
 #Dashboard screen
 class Dashboard(QMainWindow):
     cameraAction = None
+    threadLock = threading.Lock()
+    devices = []
+    threads = []
+
     def __init__(self):
         super(Dashboard, self).__init__()
         loadUi("gui.ui", self)
         self.setStatus("Initiating, please wait")
         time.sleep(3)
-        self.setStatus("Initiated")
-        self.test_btn.clicked.connect(self.testAction)
-        self.record_btn.clicked.connect(self.recordAction)
+        self.initUI()
+        self.cam1_btn.clicked.connect(self.cam1Action)
+        self.cam2_btn.clicked.connect(self.cam2Action)
+        self.stop_btn.clicked.connect(self.stopAction)
         self.detect_btn.clicked.connect(self.detectAction)
 
-    # Click through buttons functions
-    def testAction(self):
-        self.setStatus("Initiating Testing...")
-        if self.isRunning() is not None:
-            self.setStatus("Camera is " + self.isRunning())  # testing/recording/detecting
-        else:
-            self.isRunning("Testing")                       # lock for testing
-            self.setStatus("Initiating Testing")
-            time.sleep(3)
-            os.system("start /wait cmd /c python OAK_test_setup.py")
-            time.sleep(3)
-            self.isRunning(None) 
-            self.setStatus("Testing Stopped")
-
-    def recordAction(self):
-        self.setStatus("Initiating Recording...")
-        if self.isRunning() is not None:
-            self.setStatus("Camera is " + self.isRunning())  # testing/recording/detecting
-        else:
-            # lock for recording
-            self.isRunning("Recording")
-            self.setStatus("Initiating Recording")
-            time.sleep(3)
-            self.setStatus("Initiating Recording..")
-            os.system("start /wait cmd /c python OAK_camera_to_video.py")
-            time.sleep(3)
-            self.isRunning(None) 
-            self.setStatus("Recording Stopped")
+    def initUI(self):
+        self.devices = []
+        self.threads = []
+        for device in dai.Device.getAllAvailableDevices():
+            device_info = dai.DeviceInfo()
+            device_info.state = dai.XLinkDeviceState.X_LINK_BOOTLOADER
+            device_info.desc.protocol = dai.XLinkProtocol.X_LINK_TCP_IP
+            device_info.desc.name = device.getMxId()
+            self.devices.append(device_info)
+            self.threads.append(None)
+        if(len(self.devices) == 0):
+            self.setStatus("No devices found")
+        elif(len(self.devices) == 1):
+            self.setStatus("Found "+str(len(self.devices))+" devices")
+            self.ip1_text.setText(self.devices[0].getMxId())
+            self.threads[0] = OAK_camera(self.devices[0],self.frame1)
+        elif(len(self.devices) >= 2):
+            self.setStatus("Found "+str(len(self.devices))+" devices")
+            self.ip1_text.setText(self.devices[0].getMxId())
+            self.ip2_text.setText(self.devices[1].getMxId())
+            self.threads[0] = OAK_camera(self.devices[0],self.frame1)
+            self.threads[1] = OAK_camera(self.devices[1],self.frame2)
         
+    def cam1Action(self):
+        if (len(self.threads) > 0):
+            self.threads[0] = OAK_camera(self.devices[0],self.frame2)
+            thread = self.threads[0]
+            while thread.stopped() is False:
+                    time.sleep(0.1)
+                    thread.stop()
+            thread.start()
+            self.setStatus("Started "+thread.getFilename())
+        else:
+            self.setStatus("No devices found")   
+        
+    def cam2Action(self):
+        if (len(self.threads) > 1):
+            self.threads[1] = OAK_camera(self.devices[1],self.frame2)
+            thread = self.threads[1]
+            #stop current thread and start new
+            while thread.stopped() is False:
+                    time.sleep(0.1)
+                    thread.stop()
+            thread.start()
+            self.setStatus("Started "+thread.getFilename())
+        else:
+            self.setStatus("No devices found")  
+        
+    def stopAction(self):
+        for thread in self.threads:
+            while thread.stopped() is False:
+                time.sleep(0.1)
+                thread.stop()
+            self.setStatus("Stopped "+thread.getFilename())
+        
+    def cam3Action(self):
+        action = self.cam2_btn.text()
+        if (len(self.threads) > 1):
+            thread = self.threads[1]
+            if action == "Start":
+                if thread.stopped():
+                    thread.start()
+                    while thread.stopped() is True:
+                        time.sleep(0.1)
+                        thread.start()
+                    self.cam2_btn.setText("Stop")
+                    self.setStatus("Started "+thread.getFilename())
+            if action == "Stop":
+                while thread.stopped() is False:
+                    time.sleep(0.1)
+                    thread.stop()
+                    self.cam2_btn.setText("Start")
+                    self.setStatus("Stopped "+thread.getFilename())
+        else:
+            self.setStatus("No devices found")        
 
     def detectAction(self):
-        self.setStatus("Initiating Detection...")
-        if self.isRunning() is not None:
-            self.setStatus("Camera is " + self.isRunning())  # testing/recording/detecting
+        text = self.filename_text.text()
+        if (len(text) >= 19 and text.endswith(".mp4")):
+            self.setStatus("Detecting "+text)
         else:
-            # lock for detection
-            self.isRunning("Detecting")
-            self.setStatus("Initiating Detection")
-            time.sleep(3)
-            text = self.filename_text.text()
-            if (len(text) == 19 and text.endswith(".mp4")):
-                filename = text.replace(".mp4","")
-                self.setStatus("Detecting "+text)
-                cmd = "ffmpeg -framerate 30 -i "+filename+".h265 -c copy "+filename+".mp4"
-                os.chdir("video")
-                os.system("start /wait cmd /c "+cmd)
-                os.chdir("..")
-                self.setStatus("Processed "+text)
-            else:
-                self.setStatus("Please enter valid filename..")
-            self.isRunning(None) 
+            self.setStatus("Please enter valid filename..")
 
-    # Helper functions
-    def isRunning(self,status = NULL):
-        if status is not NULL:
-            self.cameraAction = status
-        if self.cameraAction is not None:
-            self.label_7.setPixmap(QtGui.QPixmap("hmi-images/online.png"))
-        else:
-            self.label_7.setPixmap(QtGui.QPixmap("hmi-images/offline.png"))
-        return self.cameraAction
-
+    #getters and setters
     def setStatus(self,status):
-        self.label_2.setText(str(status)) 
+        self.status_label.setText(str(status)) 
+    def setIp1Text(self,ip):
+        self.ip1_text.setText(str(ip))
+    def setIp2Text(self,ip):
+        self.ip1_text.setText(str(ip))
+    def getIp1Text(self):
+        return self.ip1_text.text()
+    def getIp2Text(self):
+        return self.ip2_text.text()
+    
     # End click through buttons functions
+
+#delete all files in "video" folder
+def delete_files(dir = "video"):
+    for the_file in os.listdir(dir):
+        file_path = os.path.join(dir, the_file)
+        try:
+            if os.path.isfile(file_path):
+                os.unlink(file_path)
+        except Exception as e:
+            print(e)
+delete_files()
 
 # Main 
 app = QApplication(sys.argv)
