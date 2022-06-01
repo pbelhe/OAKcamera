@@ -5,16 +5,17 @@ import depthai as dai
 
 threadLock = threading.Lock()
 threads = []
-
+angle = 90
 for device in dai.Device.getAllAvailableDevices():
     print(f" configuring {device.getMxId()} {device.state}")
     device_info = dai.DeviceInfo()
     device_info.state = dai.XLinkDeviceState.X_LINK_BOOTLOADER
     device_info.desc.protocol = dai.XLinkProtocol.X_LINK_TCP_IP
     device_info.desc.name = device.getMxId()
-    thread = OAK_camera(device_info,None)
+    thread = OAK_camera(device_info,None,angle)
     thread.start()
     threads.append(thread)
+    angle = angle*-1
 
 for t in threads:
     t.join()

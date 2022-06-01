@@ -63,39 +63,54 @@ class Dashboard(QMainWindow):
         
     def cam1Action(self):
         if (len(self.threads) > 0):
-            angle = 90 if self.angle1_text.text() == "90" else -90
-            self.threads[0] = OAK_camera(self.devices[0],self.frame1, angle)
-            thread = self.threads[0]
-            while thread.stopped() is False:
-                    time.sleep(0.1)
-                    thread.stop()
-            thread.start()
-            self.cam1_btn.setText("Restart")
-            self.setStatus("Started "+thread.getFilename())
+            if self.cam1_btn.text() == "Start":
+                angle = 90 if self.angle1_text.text() == "90" else -90
+                self.threads[0] = OAK_camera(self.devices[0],self.frame1, angle)
+                thread = self.threads[0]
+                thread.start()
+                self.cam1_btn.setText("Started")
+                self.setStatus("Started "+thread.getFilename())
+            else:
+                self.setStatus(self.threads[0].getIp()+" already started")
         else:
             self.setStatus("No devices found")   
         
     def cam2Action(self):
         if (len(self.threads) > 1):
-            angle = 90 if self.angle2_text.text() == "90" else -90
-            self.threads[1] = OAK_camera(self.devices[1],self.frame2, angle)
-            thread = self.threads[1]
-            #stop current thread and start new
-            while thread.stopped() is False:
-                    time.sleep(0.1)
-                    thread.stop()
-            thread.start()
-            self.cam2_btn.setText("Restart")
-            self.setStatus("Started "+thread.getFilename())
+            if self.cam2_btn.text() == "Start":
+                angle = 90 if self.angle2_text.text() == "90" else -90
+                self.threads[1] = OAK_camera(self.devices[1],self.frame2, angle)
+                thread = self.threads[1]
+                thread.start()
+                self.cam2_btn.setText("Started")
+                self.setStatus("Started "+thread.getFilename())
+            else:
+                self.setStatus(self.threads[1].getIp()+" already started")
         else:
             self.setStatus("No devices found")  
         
     def stopAction(self):
+        self.setStatus("Press q on frame to stop")
+        
+    def stop1Action(self):
+        result = ""
+        for thread in self.threads:
+            thread.stop()
+            thread.join()
+            result += "Stopped "+thread.getFilename()+"\n"
+        time.sleep(1)
+        self.setStatus(result)
+        self.cam1_btn.setText("Start")
+        self.cam2_btn.setText("Start")
+        
+    def stop2Action(self):
         for thread in self.threads:
             while thread.stopped() is False:
                 time.sleep(0.1)
                 thread.stop()
             self.setStatus("Stopped "+thread.getFilename())
+        self.cam1_btn.setText("Start")
+        self.cam2_btn.setText("Start")
         
     def cam3Action(self):
         action = self.cam2_btn.text()
@@ -163,4 +178,4 @@ try:
     sys.exit(app.exec_())
 except:
     print("Exiting")
-input("Press Enter to continue...")
+input("Press Enter to exit...")

@@ -120,15 +120,12 @@ class OAK_camera(threading.Thread):
                 frame = qRgb.get().getCvFrame()
                 self.out.write(frame)
                 self.image = QtGui.QImage(frame.data, frame.shape[1], frame.shape[0], QtGui.QImage.Format_RGB888).rgbSwapped()
-                self.display.setPixmap(QtGui.QPixmap.fromImage(self.image))
+                if self.display is not None:
+                    self.display.setPixmap(QtGui.QPixmap.fromImage(self.image))
                 cv2.imshow(self.ip, frame )
                 if cv2.waitKey(1) == ord('q'):
+                    self.stop()
                     break
-            self.out.release()
-            print("File Saved successfully: "+self.dt_now+".mp4")
-            self.display.setStyleSheet("QLabel { background-color : black; }");
-            cv2.destroyWindow(self.ip)
-            self.stop()
 
     def getFilepath(self):
         return self.filepath
@@ -136,12 +133,17 @@ class OAK_camera(threading.Thread):
     def getFilename(self):
         return self.dt_now
 
+    def getIp(self):
+        return self.ip
+
     def stop(self):
         self.out.release()
         print("File Saved successfully: "+self.dt_now+".mp4")
-        self.display.setStyleSheet("QLabel { background-color : black; }");
+        if self.display is not None:
+            self.display.setStyleSheet("QLabel { background-color : black; }");
         self._stop_event.set()
+        cv2.destroyWindow(self.ip)
 
     def stopped(self):
-        print(self.ip+" stopped ->"+str(self._stop_event.is_set()))
+        print(self.ip+" is stopped ->"+str(self._stop_event.is_set()))
         return self._stop_event.is_set()
