@@ -176,7 +176,7 @@ border-bottom-color: #ffbd00;
      <rect>
       <x>640</x>
       <y>300</y>
-      <width>450</width>
+      <width>200</width>
       <height>50</height>
      </rect>
     </property>
@@ -246,7 +246,7 @@ height: 50px;
      <rect>
       <x>640</x>
       <y>400</y>
-      <width>450</width>
+      <width>200</width>
       <height>50</height>
      </rect>
     </property>
@@ -329,10 +329,54 @@ height: 50px;
      <enum>Qt::LeftToRight</enum>
     </property>
     <property name="text">
-     <string>Frame1</string>
+     <string>Frame2</string>
     </property>
     <property name="alignment">
      <set>Qt::AlignCenter</set>
+    </property>
+   </widget>
+   <widget class="QLineEdit" name="angle1_text">
+    <property name="geometry">
+     <rect>
+      <x>890</x>
+      <y>300</y>
+      <width>200</width>
+      <height>50</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">border: 1px solid white;</string>
+    </property>
+    <property name="text">
+     <string>90</string>
+    </property>
+    <property name="alignment">
+     <set>Qt::AlignCenter</set>
+    </property>
+    <property name="placeholderText">
+     <string>FileName.mp4</string>
+    </property>
+   </widget>
+   <widget class="QLineEdit" name="angle2_text">
+    <property name="geometry">
+     <rect>
+      <x>890</x>
+      <y>400</y>
+      <width>200</width>
+      <height>50</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">border: 1px solid white;</string>
+    </property>
+    <property name="text">
+     <string>-90</string>
+    </property>
+    <property name="alignment">
+     <set>Qt::AlignCenter</set>
+    </property>
+    <property name="placeholderText">
+     <string>FileName.mp4</string>
     </property>
    </widget>
   </widget>
