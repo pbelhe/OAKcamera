@@ -48,17 +48,23 @@ class Dashboard(QMainWindow):
         elif(len(self.devices) == 1):
             self.setStatus("Found "+str(len(self.devices))+" devices")
             self.ip1_text.setText(self.devices[0].getMxId())
-            self.threads[0] = OAK_camera(self.devices[0],self.frame1)
+            angle = 90 if self.angle1_text.text() == "90" else -90
+            self.threads[0] = OAK_camera(self.devices[0],self.frame1, angle)
         elif(len(self.devices) >= 2):
             self.setStatus("Found "+str(len(self.devices))+" devices")
             self.ip1_text.setText(self.devices[0].getMxId())
             self.ip2_text.setText(self.devices[1].getMxId())
-            self.threads[0] = OAK_camera(self.devices[0],self.frame1)
-            self.threads[1] = OAK_camera(self.devices[1],self.frame2)
+            angle1 = 90 if self.angle1_text.text() == "90" else -90
+            angle2 = 90 if self.angle2_text.text() == "90" else -90
+            self.threads[0] = OAK_camera(self.devices[0],self.frame1, angle1)
+            self.threads[1] = OAK_camera(self.devices[1],self.frame2, angle2)
+        for device in self.devices:
+            print(">"+device.getMxId())
         
     def cam1Action(self):
         if (len(self.threads) > 0):
-            self.threads[0] = OAK_camera(self.devices[0],self.frame1)
+            angle = 90 if self.angle1_text.text() == "90" else -90
+            self.threads[0] = OAK_camera(self.devices[0],self.frame1, angle)
             thread = self.threads[0]
             while thread.stopped() is False:
                     time.sleep(0.1)
@@ -71,7 +77,8 @@ class Dashboard(QMainWindow):
         
     def cam2Action(self):
         if (len(self.threads) > 1):
-            self.threads[1] = OAK_camera(self.devices[1],self.frame2)
+            angle = 90 if self.angle2_text.text() == "90" else -90
+            self.threads[1] = OAK_camera(self.devices[1],self.frame2, angle)
             thread = self.threads[1]
             #stop current thread and start new
             while thread.stopped() is False:
@@ -141,7 +148,7 @@ def delete_files(dir = "video"):
                 os.unlink(file_path)
         except Exception as e:
             print(e)
-delete_files()
+#delete_files()
 
 # Main 
 app = QApplication(sys.argv)
@@ -156,3 +163,4 @@ try:
     sys.exit(app.exec_())
 except:
     print("Exiting")
+input("Press Enter to continue...")

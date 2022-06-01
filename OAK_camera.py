@@ -54,13 +54,14 @@ class OAK_camera(threading.Thread):
 
     device_info = None
     # overriding constructor
-    def __init__(self, device_info = None, display = None):
+    def __init__(self, device_info = None, display = None, angle = 90):
         # calling parent class constructor
         threading.Thread.__init__(self)
         self._stop_event = threading.Event()
         self.device_info = device_info
         self.ip = device_info.getMxId()
         self.display = display
+        self.angle = angle
         self.killed = False
         self.camera_config()
         self.generate_filename()
@@ -84,7 +85,7 @@ class OAK_camera(threading.Thread):
         rgbRr = dai.RotatedRect()
         rgbRr.center.x, rgbRr.center.y = self.camRgb.getPreviewWidth() // 2, self.camRgb.getPreviewHeight() // 2
         rgbRr.size.width, rgbRr.size.height = self.camRgb.getPreviewHeight(), self.camRgb.getPreviewWidth()
-        rgbRr.angle = -90
+        rgbRr.angle = self.angle
         self.manip.initialConfig.setCropRotatedRect(rgbRr, False)
 
         # Properties xoutRgb
@@ -107,7 +108,7 @@ class OAK_camera(threading.Thread):
         if os.path.exists(self.filepath):
             os.remove(self.filepath)
         self.out = cv2.VideoWriter(self.filepath, cv2.VideoWriter_fourcc('m','p','4','v'), 40, (512,960))
-        print("Video will be Saved in "+self.filepath)
+        print("Video will be Saved in "+self.filepath+" at angle "+str(self.angle))
 
     # define your own run method
     def run(self):
